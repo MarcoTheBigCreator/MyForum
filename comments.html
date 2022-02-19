@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Comments</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/mustache.min.js"></script>
+
+    <script>
+        async function GetPost() {
+            var id = window.location.search.slice(1);
+            const base = 'https://jsonplaceholder.typicode.com/posts/'
+
+            let url = base + id;
+            let response = await fetch(url);
+            let json = await response.json();
+
+            console.log(json);
+            let container = document.getElementById('container1');
+            let template = document.getElementById('template1').innerHTML;
+            let html = Mustache.render(template, json);
+
+            container.innerHTML = html;
+
+        }
+    </script>
+
+    <script>
+        async function GetComments() {
+            var id = window.location.search.slice(1);
+            const base = 'https://jsonplaceholder.typicode.com/comments?postId='
+
+            let url = base + id;
+            let response = await fetch(url);
+            let json = await response.json();
+
+            console.log(json);
+            let container = document.getElementById('container2');
+            let template = document.getElementById('template2').innerHTML;
+            let html = Mustache.render(template, json);
+
+            container.innerHTML = html;
+
+        }
+    </script>
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class=" container-fluid ">
+            <a class="navbar-brand " href="index.html ">EARFQUAKE FORUM</a>
+            <button class="navbar-toggler " type="button " data-bs-toggle="collapse " data-bs-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+            <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent ">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item ">
+                        <a class="nav-link " aria-current="page " href="index.html ">Home</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " aria-current="page " href="myprofile.html ">My Profile</a>
+                    </li>
+                </ul>
+                <form class="d-flex ">
+                    <input class="form-control me-2 " type="search " placeholder="Search " aria-label="Search ">
+                    <button class="btn btn-success " type="submit ">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <article class="container-fluid">
+        <section id="container1" class="mt-3"></section>
+        <section id="container2" class="mt-3"></section>
+        <section style="width: 40rem;">
+            <div class="mb-3">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-success">Comment</button>
+            </div>
+        </section>
+        <section id="container" class="mt-3"></section>
+    </article>
+
+    <script id="template1" type="x-tmpl-mustache">
+        {{#.}}
+        <div class="card mb-5" style="width: 40rem;">
+            <div class="card-body">
+                <div class="d-flex w-100 mb-3">
+                    <img src="img/avatar.png " alt="avatar " class=" avatarcomment ">
+                    <h5 class="card-subtitle px-3 mb-2 mt-2 pt-1 text-muted">@username</h5>
+                </div>
+                <h5 class="mb-1 card-title fw-bold mx-2 mb-3 fs-3">{{title}}</h5>
+                <p class="card-text mx-2 mt-1 text-secondary">{{body}}</p>
+                <div class="d-flex w-100 mb-3  mx-3 justify-content-between">
+                    <a href="index.html" class="card-link text-success">Back</a>
+                    <small class="datecomments card-text mt-1">x days ago</small>
+                </div>
+            </div>
+        </div>
+        {{/.}}
+    </script>
+
+    <script id="template2" type="x-tmpl-mustache">
+        <h4 class="fw-bold text-success">Comments:</h4>
+        {{#.}}
+        <div class="card border-light mb-5" style="max-width: 40rem;">
+            <div class="ecomment card-header">
+                <a href="#">{{email}}</a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text text-secondary">{{body}}</p>
+                <small class="card-text mt-1 mx-2">x days ago</small>
+            </div>
+        </div>
+        {{/.}}
+    </script>
+
+    <script>
+        GetPost();
+        GetComments();
+    </script>
+</body>
+
+</html>

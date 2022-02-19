@@ -1,0 +1,31 @@
+img {
+    width: 190px;
+    height: 190px;
+    border-radius: 20px;
+}
+
+.avatarpost {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}
+
+.avatarcomment {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+small {
+    font-size: 12px;
+    font-family: sans-serif;
+    color: #808080ab;
+}
+
+.datecomments {
+    padding-right: 60px;
+}
+
+.ecomment {
+    font-size: 12px;
+}
