@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/bootstrap.bundle.js"></script>
     <script src="js/mustache.min.js"></script>
 
     <script>
@@ -50,25 +51,25 @@
     </script>
 </head>
 
-<body class="bg-light">
+<body class="bg-light" style=" min-width: 40rem;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class=" container-fluid ">
-            <a class="navbar-brand " href="index.html ">EARFQUAKE FORUM</a>
-            <button class="navbar-toggler " type="button " data-bs-toggle="collapse " data-bs-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
-            <span class="navbar-toggler-icon "></span>
+        <div class=" container-fluid">
+            <a class="navbar-brand" href="index.html">EARFQUAKE FORUM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse " id="navbarSupportedContent ">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                    <li class="nav-item ">
-                        <a class="nav-link " aria-current="page " href="index.html ">Home</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " aria-current="page " href="myprofile.html ">My Profile</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="myprofile.html">My Profile</a>
                     </li>
                 </ul>
-                <form class="d-flex ">
-                    <input class="form-control me-2 " type="search " placeholder="Search " aria-label="Search ">
-                    <button class="btn btn-success " type="submit ">Search</button>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
@@ -89,15 +90,15 @@
 
     <script id="template1" type="x-tmpl-mustache">
         {{#.}}
-        <div class="card mb-5" style="width: 40rem;">
+        <div class="card mb-5" style="max-width: 40rem;">
             <div class="card-body">
                 <div class="d-flex w-100 mb-3">
-                    <img src="img/avatar.png " alt="avatar " class=" avatarcomment ">
+                    <img src="img/avatar.png" alt="avatar" class="avatarcomment">
                     <h5 class="card-subtitle px-3 mb-2 mt-2 pt-1 text-muted">@username</h5>
                 </div>
                 <h5 class="mb-1 card-title fw-bold mx-2 mb-3 fs-3">{{title}}</h5>
                 <p class="card-text mx-2 mt-1 text-secondary">{{body}}</p>
-                <div class="d-flex w-100 mb-3  mx-3 justify-content-between">
+                <div class="d-flex w-100 mb-3 mx-3 justify-content-between">
                     <a href="index.html" class="card-link text-success">Back</a>
                     <small class="datecomments card-text mt-1">x days ago</small>
                 </div>
@@ -109,7 +110,7 @@
     <script id="template2" type="x-tmpl-mustache">
         <h4 class="fw-bold text-success">Comments:</h4>
         {{#.}}
-        <div class="card border-light mb-5" style="max-width: 40rem;">
+        <div class="card border-light mb-5 " style="max-width: 40rem;">
             <div class="ecomment card-header">
                 <a href="#">{{email}}</a>
             </div>

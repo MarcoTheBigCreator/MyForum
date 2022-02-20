@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/mustache.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+
     <script>
         async function GetData() {
             const base = 'https://jsonplaceholder.typicode.com'
@@ -38,10 +40,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="myprofile.html">My Profile</a>
+                        <a class="nav-link" href="myprofile.html">My Profile</a>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -60,8 +62,12 @@
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
             <div class="btn-group" role="group">
                 <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    Newest
+                    Order
                 </button>
+                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <li><a class="dropdown-item" href="#">Newest</a></li>
+                    <li><a class="dropdown-item" href="#">Oldest</a></li>
+                </ul>
             </div>
         </div>
         <div class="list-group mt-3">
@@ -69,12 +75,14 @@
             <a href="comments.html?{{id}}" class="list-group-item list-group-item-action">
                 <img src="img/avatar.png" alt="avatar" class=" avatarpost ">
                 <small class="card-text mx-1 mt-1 text-secondary ">@username</small>
-                <div class="d-flex w-100 justify-content-between">
+                <div>
                     <h5 class="mb-1 card-title fw-bold ">{{id}}. ▲ {{title}}</h5>
-                    <small class="card-text mx-2 mt-1">x days ago</small>
                 </div>
                 <p class="mb-1 card-subtitle text-secondary mx-2">{{body}}</p>
-                <small class="card-text mx-4">xxx comments</small>
+                <div class="d-flex w-100 justify-content-between">
+                    <small class="card-text mx-2 mt-1 ">xxx comments</small>
+                    <small class="card-text mx-2 mt-1 ">x days ago</small>
+                </div>
             </a>
             {{/.}}
         </div>
